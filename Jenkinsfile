@@ -4,7 +4,7 @@ node {
   }
   stage('check git'){
     echo "Git status: "
-    echo sh(returnStdout: true, script: 'git status')
+    echo sh(returnStdout: true, script: 'cd /tmp/build && git status')
     
     GIT_SHORT_COMMIT = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
     echo "Git short commit: "
