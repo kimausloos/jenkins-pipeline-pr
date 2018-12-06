@@ -6,6 +6,9 @@ node {
     echo "Git status: "
     echo sh(returnStdout: true, script: 'cd /tmp/build && git status')
     
+    def gitCommitId = sh(returnStdout: true, script: 'cd /tmp/build && git rev-parse HEAD')
+    echo gitCommitId
+    
     GIT_SHORT_COMMIT = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
     echo "Git short commit: "
     echo GIT_SHORT_COMMIT
